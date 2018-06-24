@@ -71,7 +71,7 @@ class HeroesListAdapter(val clickListener: Click):  RecyclerView.Adapter<HeroesL
 
                         })
                         .into(heroImage)
-
+                heroFavIcon.visibility = if(item.favourite) View.VISIBLE else View.GONE
                 heroTitle.text = item.name
                 setOnClickListener { clickListener(item, heroImage) }
             }

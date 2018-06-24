@@ -13,6 +13,9 @@ abstract class HeroDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(heroes: List<MarvelHeroEntity>)
 
+    @Update
+    abstract fun updateHero(hero: MarvelHeroEntity)
+
     @Query("DELETE FROM heroes")
     abstract fun deleteAll()
 

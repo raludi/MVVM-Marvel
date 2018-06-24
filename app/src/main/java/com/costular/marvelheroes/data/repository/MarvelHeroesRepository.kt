@@ -12,4 +12,5 @@ interface MarvelHeroesRepository {
     fun getMarvelHeroesList(): Flowable<List<MarvelHeroEntity>>
     fun getMarvelHeroesFromApi(): Flowable<List<MarvelHeroEntity>>
     fun getMarvelHeroesFromDb():  Flowable<List<MarvelHeroEntity>>
+    fun changeFavouriteHero(hero: Observable<MarvelHeroEntity>)
 }

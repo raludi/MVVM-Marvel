@@ -13,6 +13,9 @@ import io.reactivex.Observable
 class MarvelHeroesRepositoryImpl(private val remoteMarvelHeroesDataSource: RemoteMarvelHeroesDataSource,
                                  private val localDataMarvelHeroesDataSource: LocalDataMarvelHeroesDataSource)
     : MarvelHeroesRepository {
+    override fun changeFavouriteHero(hero: Observable<MarvelHeroEntity>) {
+        localDataMarvelHeroesDataSource.changeFavouriteHeroe(hero)
+    }
 
     override fun getMarvelHeroesList(): Flowable<List<MarvelHeroEntity>> =
         getMarvelHeroesFromDb().concatWith(getMarvelHeroesFromApi())
