@@ -20,8 +20,10 @@ class MarvelHeroesRepositoryImpl(private val remoteMarvelHeroesDataSource: Remot
     override fun getMarvelHeroesFromApi(): Flowable<List<MarvelHeroEntity>> =
             remoteMarvelHeroesDataSource
                     .getMarvelHeroesList()
+                    .doOnNext { localDataMarvelHeroesDataSource.saveHeroes(it) }
 
     override fun getMarvelHeroesFromDb(): Flowable<List<MarvelHeroEntity>> =
             localDataMarvelHeroesDataSource.getMarvelHeroesList()
+
 
 }

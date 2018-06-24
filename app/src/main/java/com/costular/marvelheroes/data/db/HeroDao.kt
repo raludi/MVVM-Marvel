@@ -1,9 +1,6 @@
 package com.costular.marvelheroes.data.db
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.costular.marvelheroes.domain.model.MarvelHeroEntity
 import io.reactivex.Maybe
 
@@ -18,4 +15,10 @@ abstract class HeroDao {
 
     @Query("DELETE FROM heroes")
     abstract fun deleteAll()
+
+    @Transaction
+    open fun removeAndInsertHeroes(heroes: List<MarvelHeroEntity>) {
+        deleteAll()
+        insert(heroes)
+    }
 }
