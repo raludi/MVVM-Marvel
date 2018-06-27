@@ -34,6 +34,11 @@ class HeroesListActivity : AppCompatActivity() {
         setUp()
     }
 
+    override fun onStart() {
+        super.onStart()
+        heroesListViewModel.loadHeroesList()
+    }
+
     fun inject() {
         ((application as MainApp).component)
                 .inject(this)

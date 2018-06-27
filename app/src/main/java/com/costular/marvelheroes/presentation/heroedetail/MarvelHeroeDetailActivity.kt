@@ -51,13 +51,13 @@ class MarvelHeroeDetailActivity : AppCompatActivity() {
 
         hero?.let {
             fillHeroData(it)
+            changeColorFav(hero.favourite)
             heroeAddFav.setOnClickListener {
                 hero.favourite = if (hero.favourite) false else true
+                changeColorFav(hero.favourite)
                 heroesDetailViewModel.updateFavouriteModel(Observable.just(hero))
             }
         }
-
-
     }
 
     private fun inject() {
@@ -99,6 +99,13 @@ class MarvelHeroeDetailActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun changeColorFav(favourite: Boolean) {
+        when(favourite) {
+            true -> heroeAddFav.setImageResource(R.drawable.fav_yes)
+            else -> heroeAddFav.setImageResource(R.drawable.fav_no)
         }
     }
 

@@ -34,7 +34,7 @@ class LocalDataMarvelHeroesDataSource(val heroesDatabase: HeroesDatabase) : Marv
 
     fun changeFavouriteHeroe(hero: Observable<MarvelHeroEntity>) {
         hero.subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.newThread())
+                .observeOn(Schedulers.io())
                 .subscribe({
             heroesDatabase.getHeroDao().updateHero(it)
         },{
