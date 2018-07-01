@@ -1,6 +1,6 @@
 # Práctica keepcoding android 💪🏻
 
-La aplicación original muestra el siguiente aspecto.
+Se ha modificado la aplicación original de la que se ha partido para la realización de la práctica.
 
  Main                      |  Detail
 :-------------------------:|:-------------------------:
@@ -10,4 +10,4 @@ La aplicación original muestra el siguiente aspecto.
 
 - Se ha cambiado el MVP por un modelo MVVM
 - Se ha añadido room para la persistencia de datos 
-- En la pantalla detalle se puede añadir a un héroe como favorito, esto se verá 
+- En la pantalla detalle se puede añadir a un héroe como favorito, esto se verá reflejado en la lista de héroes.
